@@ -1,0 +1,585 @@
+@import './font';
+@import './scss/bootstrap';
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+* {
+  min-height: 0;
+  min-width: 0;
+}
+
+div#app {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  background: #f7f7f7;
+}
+
+.wrapper {
+  height: 100%;
+  background: #fff;
+  width: 1300px;
+  padding: 0 4px;
+  .two_column_wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    margin-top: 28px;
+    padding: 0 64px;
+    .left_panel {
+      flex: 2
+    }
+    .right_panel {
+      flex: 1;
+      margin-left: 20px;
+    }
+  }
+  .one_column_wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    margin-top: 28px;
+    padding: 0 64px;
+  }
+}
+
+.ant-modal-wrap {
+  z-index: 10000;
+}
+
+.ant-form-item-label {
+  line-height: inherit;
+  .label {
+    margin: 0;
+  }
+}
+
+.ant-progress {
+  position: absolute;
+}
+
+.ant-tabs-bar {
+  border: none;
+  .ant-tabs-ink-bar {
+    background-color: #F15025;
+  }
+  .ant-tabs-nav {
+    .ant-tabs-tab {
+      font-weight: 400;
+      &.ant-tabs-tab-active {
+        color: #F15025;
+      }
+      &:hover {
+        color: #F15025;
+      }
+    }
+  }
+}
+
+.header-section {
+  display: flex;
+  align-items: center;
+  z-index: 2;
+  position: relative;
+  height: 85px;
+  a {
+    color: #191919;
+  }
+  .header-logo {
+    background: url('/logo-background.png');
+    height: 100%;
+    width: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .header-menu {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+    font-size: 0.85rem;
+    flex-grow: 1;
+    margin-right: 32px;
+    ul {
+      margin: 0;
+      display: flex;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: nowrap;
+      flex: 1;
+      li {
+        flex: 1;
+        flex-direction: column;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        transition: all .2s ease;
+        a {
+          padding: 4px;
+          display: block;
+          text-decoration: none;
+          &.active {
+            box-shadow: 0 2px 0 0 #F15025;
+          }
+        }
+        i {
+          transition: all .2s ease;
+        }
+        &:hover {
+          i {
+            transform: scale(1.6);
+            opacity: 0;
+          }
+        }
+      }
+    }
+    .logo {
+      display: flex;
+      height: 100%;
+      flex: 1;
+    }
+  }
+  .header-search {
+    margin: 10px;
+    min-width: 300px;
+    .search-trigger {
+      font-weight: 200;
+      padding: 7px;
+      height: auto;
+      width: 100%;
+      color: #999;
+    }
+    .search-overlay {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      background: rgba(255, 255, 255, 0.95);
+      z-index: 1010;
+      padding: 28px 0 0 64px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      .search {
+        height: 78px;
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        .search-icon {
+          font-size: 28px;
+          margin-right: 28px;
+        }
+        .search-input {
+          font-weight: 100;
+          font-size: 32px;
+          line-height: 100px;
+          width: 100%;
+          padding-left: 0 !important;
+          background: transparent;
+          border: 0;
+          ::placeholder {
+            color: rgba(0, 0, 0, .4);
+          }
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+      .p-d-weekly-anime {
+        display: flex;
+        flex-direction: column;
+        h3 {
+          font-size: 18px;
+        }
+        .anime-information {
+          display: flex;
+          flex-direction: row;
+          .thumbnail {
+            max-width: 128px;
+            img {
+              border-radius: 5px;
+            }
+          }
+          .information {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            margin-left: 12px;
+            font-size: 12px;
+            .title {
+              font-size: 16px;
+              font-weight: bold;
+            }
+            .extra-information {
+              display: flex;
+              flex-direction: column;
+              justify-content: flex-end;
+              flex: 1;
+            }
+          }
+        }
+        .extra {
+          display: flex;
+          flex-direction: row;
+          margin: 8px 0;
+          .boxes {
+            margin-right: 4px;
+            flex: 1;
+            flex-direction: row;
+            display: flex;
+            justify-content: space-between;
+            .box {
+              display: flex;
+              background: rgba(240, 240, 240, .5);
+              border-radius: 5px;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              padding: 8px;
+              width: calc(50% - 2px);
+            }
+          }
+          .operation {
+            flex: 1;
+            button {
+              height: 100%;
+              width: 100%;
+            }
+          }
+        }
+        .head {
+          font-weight: 900;
+        }
+        .desc {
+          font-weight: 100;
+        }
+      }
+      .result-set {
+        display: flex;
+        flex-wrap: wrap;
+        .p-sh-simple-anime-cart {
+          width: calc(20% - 10px);
+          margin: 5px;
+          transition: all .3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+          padding: 5px;
+          &:hover {
+            transform: translateY(-20px);
+          }
+        }
+      }
+    }
+  }
+  .header-auth {
+    margin: 10px;
+    color: #757575;
+    font-size: 0.85rem;
+  }
+}
+
+.footer-section {
+  height: 128px;
+  background: #222 url('/footer.png') no-repeat center center;
+  width: 100%;
+  display: flex;
+  padding: 0 30px;
+  align-items: center;
+  margin-top: 18px;
+  .logo {
+    width: 328px;
+    .footer-text {
+      color: #e2e2e2;
+      font-size: 0.65rem;
+      font-weight: 100;
+      p {
+        margin: 5px 0 0 0;
+        a {
+          color: #e2e2e2;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+.p-d-news-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 386px;
+  justify-content: space-between;
+  align-items: stretch;
+  .tile {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    &__col {
+      margin-bottom: 4px;
+      display: flex;
+    }
+    &--two {
+      .tile__col {
+        width: calc(50% - 2px);
+      }
+    }
+    &--big {
+      flex: 2;
+      .tile__item {
+        flex: 1;
+      }
+    }
+    &--mid {
+      flex: 1;
+      .tile__item {
+        width: calc(50% - 2px);
+        &-title {
+          font-size: 13px;
+          font-weight: 900;
+        }
+        &-desc {
+          font-size: 11px;
+        }
+        &-title,
+        &-desc {
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+        }
+      }
+      .tile__col {
+        justify-content: space-between;
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
+    &__item {
+      background: #fff;
+      transition: filter .5s ease 0s;
+      box-sizing: border-box;
+      display: flex;
+      flex-wrap: wrap;
+      cursor: pointer;
+      align-items: flex-end;
+      background-size: cover;
+      background-position: center center;
+      &-title {
+        font-size: 20px;
+        font-weight: 200;
+        padding: 0;
+        margin: 0 0 6px 0;
+      }
+      &-desc {
+        margin: 0;
+        padding: 0;
+      }
+      &-inner {
+        padding: 20px;
+        width: 100%;
+        color: #fff;
+        box-sizing: border-box;
+        position: relative;
+        background-image: linear-gradient(hsla(0, 0%, 100%, 0), hsla(0, 0%, 0%, .5));
+      }
+      &:hover {
+        filter: grayscale(100%);
+      }
+    }
+    &__menu {
+      display: flex;
+      height: calc(100% + 2px);
+      flex-wrap: wrap;
+      width: 100%;
+      justify-content: space-between;
+
+      &-item {
+        width: calc(33.3% - 2px);
+        background: #f5f5f5;
+        margin: 2px 0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        padding: 10px;
+        box-sizing: border-box;
+        justify-content: center;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+.p-d-latest-episodes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
+  flex: 1;
+  .extra {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    margin: 16px 0;
+    h3 {
+      margin: 0;
+      font-size: 16px;
+    }
+    .navigation-buttons {
+      a {
+        &:first-child {
+          margin-right: 12px;
+        }
+      }
+    }
+  }
+  .ant-carousel {
+    width: 100%;
+    display: flex;
+    .slick-dots {
+      display: flex;
+      position: relative;
+      align-items: center;
+      justify-content: center;
+      bottom: 0;
+      margin-top: 8px;
+    }
+  }
+  .ant-rate-disabled {
+    font-size: 11px;
+    .ant-rate-star {
+      cursor: default;
+      margin-right: 3px;
+    }
+  }
+  .tile {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex: 1;
+    min-width: 0;
+    .tile-wrapper {
+      width: 15%;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 18px;
+      .anime-poster {
+        margin-bottom: 8px;
+      }
+      .anime-title {
+        font-weight: 900;
+        font-size: 13px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+      .anime-reviews {
+        font-size: 11px;
+        font-weight: 100;
+        margin-top: 8px;
+      }
+      .anime-episode-title {
+        font-size: 11px;
+        flex: 1;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        span {
+          &:first-child {
+            margin-right: 8px;
+            font-size: 0.75rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+.p-sh-simple-anime-cart {
+  display: flex;
+  flex-direction: column;
+  .anime-information {
+    display: flex;
+    flex-direction: row;
+    .thumbnail {
+      max-width: 128px;
+      img {
+        border-radius: 5px;
+      }
+    }
+    .information {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      margin-left: 12px;
+      font-size: 12px;
+      .title {
+        font-size: 16px;
+        font-weight: bold;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+      .extra-information {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        flex: 1;
+      }
+    }
+  }
+  .extra {
+    display: flex;
+    flex-direction: row;
+    margin: 8px 0;
+    .boxes {
+      margin-right: 4px;
+      flex: 1;
+      flex-direction: row;
+      display: flex;
+      justify-content: space-between;
+      .box {
+        display: flex;
+        background: rgba(240, 240, 240, .5);
+        border-radius: 5px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 8px;
+        width: calc(50% - 2px);
+      }
+    }
+    .operation {
+      flex: 1;
+      button {
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+  .head {
+    font-weight: 900;
+  }
+  .desc {
+    font-weight: 100;
+  }
+}
+
+.p-d-weekly-anime {
+  h3 {
+    font-size: 18px;
+  }
+}
+
+.p-d-anime {
+  .cover-image {
+    height: 420px;
+    background-size: cover;
+    background-position: center center;
+    z-index: 1;
+  }
+}
