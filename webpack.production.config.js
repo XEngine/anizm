@@ -4,16 +4,13 @@ const resolve = path.resolve
 
 const config = {
     entry: [
-        'react-hot-loader/patch',
-        'webpack-dev-server/client?http://0.0.0.0:3000',
-        'webpack/hot/only-dev-server',
         './src/root.js'
     ],
-    devtool: 'inline-source-map',
+    devtool: 'source-map',
     output: {
-        filename: 'bundle.js',
+        filename: '[name].[chunkhash].js',
+        chunkFilename: '[name].[chunkhash].chunk.js',
         path: resolve(__dirname, 'public'),
-        publicPath: '/'
     },
     module: {
         loaders: [
@@ -54,11 +51,11 @@ const config = {
         ]
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
         new webpack.NamedModulesPlugin(),
         new webpack.DefinePlugin({
             'process.env': {
-                'NODE_ENV': JSON.stringify('development'),
+                'NODE_ENV': JSON.stringify('production'),
+                '__DEVTOOLS__' : false,
                 'API_URL': JSON.stringify('http://localhost:3000/serv/'),
                 'JWT': JSON.stringify({
                     client_id: 2,
@@ -66,24 +63,28 @@ const config = {
                 }),
                 'CDN' : JSON.stringify('//localhost:3000/serv')
             }
-        })
-    ],
-    devServer: {
-        hot: true,
-        contentBase: resolve(__dirname, 'public'),
-        publicPath: '/',
-        disableHostCheck: true,
-        historyApiFallback: true,
-        proxy: {
-            '/serv': {
-                target: "http://anizmapi.dev",
-                changeOrigin: true,
-                pathRewrite: {
-                    '^/serv': ''
-                }
-            }
-        }
-    },
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            mangle: true,
+            compress: {
+                warnings: false, // Suppress uglification warnings
+                pure_getters: true,
+                unsafe: true,
+                unsafe_comps: true,
+                screw_ie8: true
+            },
+            output: {
+                comments: false,
+            },
+            exclude: [/\.min\.js$/gi] // skip pre-minified libs
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'bundle',
+            children: true,
+            minChunks: 2,
+            async: true,
+        }),
+    ]
 }
 
 module.exports = config

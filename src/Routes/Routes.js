@@ -14,7 +14,7 @@ import Dashboard from '../Containers/Dashboard'
 import Anime from '../Containers/Anime'
 import NotFound from '../Containers/NotFound'
 
-axios.defaults.baseURL = config.api_url
+axios.defaults.baseURL = process.env.API_URL
 axios.defaults.headers = {
     "Accept": 'application/json',
     "Content-Type": 'application/json',
@@ -37,8 +37,6 @@ const Routes = withRouter(({location}) => (
         </Switch>
         <Footer/>
     </div>
-
-
 ))
 
 export default Routes

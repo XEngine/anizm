@@ -37,8 +37,8 @@ export const login = data => dispatch => {
             method: 'post',
             data: {
                 grant_type: 'password',
-                client_id : config.jwt.client_id,
-                client_secret : config.jwt.client_secret,
+                client_id : process.env.JWT.client_id,
+                client_secret : process.env.JWT.client_secret,
                 username : data.username,
                 password: data.password
             }

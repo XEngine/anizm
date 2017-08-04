@@ -3,7 +3,6 @@ const config = {
     jwt : {
         client_id : 2,
         client_secret : 'Pp4MowKT1UemtAQqv7vhNHA4Xm0CWrdwfqBjo01S',
-
     }
 }
 export default config
