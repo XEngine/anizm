@@ -56,12 +56,12 @@ const config = {
             'process.env': {
                 'NODE_ENV': JSON.stringify('production'),
                 '__DEVTOOLS__' : false,
-                'API_URL': JSON.stringify('http://localhost:3000/serv/'),
+                'API_URL': JSON.stringify('http://api.anizm.tv/'),
                 'JWT': JSON.stringify({
                     client_id: 2,
                     client_secret: "Pp4MowKT1UemtAQqv7vhNHA4Xm0CWrdwfqBjo01S",
                 }),
-                'CDN' : JSON.stringify('//localhost:3000/serv')
+                'CDN' : JSON.stringify('//api.anizm.tv')
             }
         }),
         new webpack.optimize.UglifyJsPlugin({
