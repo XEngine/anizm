@@ -1,14 +1,29 @@
 {
-    "plugins": [
-        "react-hot-loader/babel",
-        [
-            "import",
-            {
-                "libraryName": "antd",
-                "style": true
-            }
-        ]
-    ],
+    "env": {
+        "development": {
+            "plugins": [
+                "react-hot-loader/babel",
+                [
+                    "import",
+                    {
+                        "libraryName": "antd",
+                        "style": true
+                    }
+                ]
+            ]
+        },
+        "production" : {
+            "plugins": [
+                [
+                    "import",
+                    {
+                        "libraryName": "antd",
+                        "style": true
+                    }
+                ]
+            ]
+        }
+    },
     "presets": [
         [
             "es2015",

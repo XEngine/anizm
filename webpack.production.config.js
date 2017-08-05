@@ -8,8 +8,7 @@ const config = {
     ],
     devtool: 'source-map',
     output: {
-        filename: '[name].[chunkhash].js',
-        chunkFilename: '[name].[chunkhash].chunk.js',
+        filename: 'bundle.js',
         path: resolve(__dirname, 'public'),
     },
     module: {
@@ -56,7 +55,7 @@ const config = {
             'process.env': {
                 'NODE_ENV': JSON.stringify('production'),
                 '__DEVTOOLS__' : false,
-                'API_URL': JSON.stringify('http://api.anizm.tv/'),
+                'API_URL': JSON.stringify('//api.anizm.tv/'),
                 'JWT': JSON.stringify({
                     client_id: 2,
                     client_secret: "Pp4MowKT1UemtAQqv7vhNHA4Xm0CWrdwfqBjo01S",
@@ -67,7 +66,7 @@ const config = {
         new webpack.optimize.UglifyJsPlugin({
             mangle: true,
             compress: {
-                warnings: false, // Suppress uglification warnings
+                warnings: true, // Suppress uglification warnings
                 pure_getters: true,
                 unsafe: true,
                 unsafe_comps: true,
@@ -77,13 +76,7 @@ const config = {
                 comments: false,
             },
             exclude: [/\.min\.js$/gi] // skip pre-minified libs
-        }),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'bundle',
-            children: true,
-            minChunks: 2,
-            async: true,
-        }),
+        })
     ]
 }
 
