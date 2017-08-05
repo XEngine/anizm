@@ -14,7 +14,6 @@ export default class Header extends React.Component {
             <div className="header-section">
                 <Logo/>
                 <Menu/>
-                <Search/>
                 <Auth/>
             </div>
         )

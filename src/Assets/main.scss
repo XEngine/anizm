@@ -2,7 +2,7 @@
 @import './scss/bootstrap';
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
 }
 
 * {
@@ -12,37 +12,7 @@ body {
 
 div#app {
   width: 100%;
-  justify-content: center;
-  display: flex;
-  background: #f7f7f7;
-}
-
-.wrapper {
-  height: 100%;
   background: #fff;
-  width: 1300px;
-  padding: 0 4px;
-  .two_column_wrapper {
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    margin-top: 28px;
-    padding: 0 64px;
-    .left_panel {
-      flex: 2
-    }
-    .right_panel {
-      flex: 1;
-      margin-left: 20px;
-    }
-  }
-  .one_column_wrapper {
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    margin-top: 28px;
-    padding: 0 64px;
-  }
 }
 
 .ant-modal-wrap {
@@ -77,20 +47,35 @@ div#app {
     }
   }
 }
-
+.header-padding{
+  margin-top : -14rem;
+}
 .header-section {
   display: flex;
-  align-items: center;
-  z-index: 2;
+  align-items: flex-start;
+  justify-content: space-between;
   position: relative;
-  height: 85px;
+  height: 34rem;
+  padding: 2rem;
+  background-size: cover;
+  background: url('http://wallpapersdsc.net/wp-content/uploads/2017/04/Berserk-HD-Background-.jpg') 0 20%;
+  color: #fff;
+  &::after{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 55%;
+    bottom: 0;
+    left:0;
+    background: -webkit-linear-gradient(transparent, #FFF) left repeat;
+    background: linear-gradient(transparent, #FFF) left repeat;
+  }
   a {
-    color: #191919;
+    //color: #191919;
+    color: inherit;
   }
   .header-logo {
-    background: url('/logo-background.png');
-    height: 100%;
-    width: 350px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -98,43 +83,16 @@ div#app {
   .header-menu {
     display: flex;
     justify-content: center;
-    height: 100%;
     align-items: center;
-    font-size: 0.85rem;
-    flex-grow: 1;
-    margin-right: 32px;
-    ul {
-      margin: 0;
-      display: flex;
-      height: 100%;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: nowrap;
-      flex: 1;
-      li {
-        flex: 1;
-        flex-direction: column;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-        transition: all .2s ease;
-        a {
-          padding: 4px;
-          display: block;
-          text-decoration: none;
-          &.active {
-            box-shadow: 0 2px 0 0 #F15025;
-          }
-        }
-        i {
-          transition: all .2s ease;
-        }
-        &:hover {
-          i {
-            transform: scale(1.6);
-            opacity: 0;
-          }
+    span {
+      transition: all .2s ease;
+      padding: 0 1.5rem;
+      a {
+        display: block;
+        color: inherit;
+        text-decoration: none;
+        &.active {
+          box-shadow: 0 2px 0 0 #F15025;
         }
       }
     }
@@ -278,9 +236,7 @@ div#app {
     }
   }
   .header-auth {
-    margin: 10px;
-    color: #757575;
-    font-size: 0.85rem;
+    //color: #757575;
   }
 }
 

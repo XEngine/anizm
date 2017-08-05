@@ -29,13 +29,15 @@ if (Auth.isAuthenticated()) {
 }
 
 const Routes = withRouter(({location}) => (
-    <div className="wrapper">
+    <div className="anizm-container">
         <Header/>
-        <Switch key={location.key} location={location}>
-            <Route exact path="/" component={Dashboard}/>
-            <Route exact path="/anime/:slug" component={Anime}/>
-        </Switch>
-        <Footer/>
+        <div className="container header-padding">
+            <Switch key={location.key} location={location}>
+                <Route exact path="/" component={Dashboard}/>
+                <Route exact path="/anime/:slug" component={Anime}/>
+            </Switch>
+            <Footer/>
+        </div>
     </div>
 ))
 
