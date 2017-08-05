@@ -39,7 +39,7 @@ class SimpleAnimeCart extends React.Component {
             <div className="p-sh-simple-anime-cart">
                 <div className="anime-information">
                     <div className="thumbnail">
-                        <img src={'//localhost:3000/serv' + anime.posters.tiny}/>
+                        <img src={CDN + anime.posters.tiny}/>
                     </div>
                     <div className="information">
                         <div className="title">

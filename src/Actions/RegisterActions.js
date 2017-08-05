@@ -22,7 +22,7 @@ export function registerFailed(error) {
 export const register = data => dispatch => {
     dispatch(registering())
     return new Promise((resolve, reject) => {
-        axios('api/user', {
+        axios('/user', {
             method: 'post',
             data: data
         }).then(response => {

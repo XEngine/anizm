@@ -45,7 +45,7 @@ export const login = data => dispatch => {
         }).then(response => {
             console.log(response)
             Auth.setToken(response.data.access_token,response.data.expires_in)
-            axios('api/user', {
+            axios('/user', {
                 method: 'GET'
             }).then(user => {
                 Auth.setUser(user.data)

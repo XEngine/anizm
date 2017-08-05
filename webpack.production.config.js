@@ -54,6 +54,7 @@ const config = {
         new webpack.DefinePlugin({
             'process.env': {
                 'NODE_ENV': JSON.stringify('production'),
+                'BABEL_ENV' : JSON.stringify('production'),
                 '__DEVTOOLS__' : false,
                 'API_URL': JSON.stringify('//api.anizm.tv/'),
                 'JWT': JSON.stringify({

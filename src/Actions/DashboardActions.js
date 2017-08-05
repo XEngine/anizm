@@ -6,7 +6,7 @@ export const dashboard = () => dispatch => {
         type: constants.DASHBOARD_FETCHING
     })
     return new Promise((resolve, reject) => {
-        axios('api/anime/dashboard', {
+        axios('/anime/dashboard', {
             method: 'get'
         }).then(response => {
             dispatch({

@@ -6,7 +6,7 @@ export const animeAction = data => dispatch => {
         type: constants.ANIME_FETCHING
     })
     return new Promise((resolve, reject) => {
-        axios.get('api/anime/detail', {
+        axios.get('/anime/detail', {
             params : {slug : data}
         }).then(response => {
             dispatch({
