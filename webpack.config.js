@@ -59,7 +59,8 @@ const config = {
         new webpack.DefinePlugin({
             'process.env': {
                 'NODE_ENV': JSON.stringify('development'),
-                'API_URL': JSON.stringify('http://localhost:3000/serv/'),
+                'BABEL_ENV' : JSON.stringify('development'),
+                'API_URL': JSON.stringify('http://localhost:3000/serv/api'),
                 'JWT': JSON.stringify({
                     client_id: 2,
                     client_secret: "Pp4MowKT1UemtAQqv7vhNHA4Xm0CWrdwfqBjo01S",

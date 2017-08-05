@@ -7,7 +7,7 @@ const AnimeListCart = (props) => {
         <div itemScope={true} itemType="http://schema.org/TVSeries" className="tile-wrapper">
             <a itemProp="url" href="#">
                 <div className="anime-poster">
-                    <img itemProp="image" className="img-fluid rounded" src={`${CDN}${episode.anime.posters.small}`} />
+                    <img itemProp="image" className="img-fluid rounded" src={`${process.env.CDN}${episode.anime.posters.small}`} />
                 </div>
                 <div className="anime-title">
                     <span itemProp="name">{episode.anime.canonical_title}</span>
