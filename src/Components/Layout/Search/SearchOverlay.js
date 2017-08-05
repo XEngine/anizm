@@ -44,7 +44,7 @@ export default class SearchOverlay extends React.Component {
     }
 
     handleSearch(value) {
-        axios('api/anime/search', {
+        axios('/anime/search', {
             method: 'get',
             params: {query: value}
         }).then(response => {
