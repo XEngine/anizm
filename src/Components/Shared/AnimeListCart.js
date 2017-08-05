@@ -16,8 +16,7 @@ const AnimeListCart = (props) => {
                      itemProp="episode"
                      itemScope={true}
                      itemType="http://schema.org/TVEpisode">
-                    <span itemProp="position" className="badge badge-danger" >{episode.canonical_title ? episode.episode : 'Bölüm ' + episode.episode}</span>
-                    <span itemProp="name">{episode.canonical_title}</span>
+                    <span itemProp="position" className="badge badge-danger" >{episode.episode + '. Bölüm '}</span>
                 </div>
                 <div className="anime-reviews">
                     <Rate disabled defaultValue={4}/> (43 Yorum)
