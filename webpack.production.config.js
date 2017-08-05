@@ -56,7 +56,7 @@ const config = {
                 'NODE_ENV': JSON.stringify('production'),
                 'BABEL_ENV' : JSON.stringify('production'),
                 '__DEVTOOLS__' : false,
-                'API_URL': JSON.stringify('//api.anizm.tv/'),
+                'API_URL': JSON.stringify('//api.anizm.tv/api'),
                 'JWT': JSON.stringify({
                     client_id: 2,
                     client_secret: "Pp4MowKT1UemtAQqv7vhNHA4Xm0CWrdwfqBjo01S",
