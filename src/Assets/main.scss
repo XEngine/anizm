@@ -48,7 +48,7 @@ div#app {
   }
 }
 .header-padding{
-  margin-top : -14rem;
+  margin-top : -8rem;
 }
 .header-section {
   display: flex;
@@ -57,8 +57,10 @@ div#app {
   position: relative;
   height: 34rem;
   padding: 2rem;
+  transition: background .5s ease 0s;
   background-size: cover;
-  background: url('http://wallpapersdsc.net/wp-content/uploads/2017/04/Berserk-HD-Background-.jpg') center 20%;
+  background-image: url('http://wallpapersdsc.net/wp-content/uploads/2017/04/Berserk-HD-Background-.jpg');
+  background-position: center 20%;
   color: #fff;
   &::after{
     content: "";

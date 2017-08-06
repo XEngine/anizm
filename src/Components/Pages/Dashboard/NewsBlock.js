@@ -4,23 +4,18 @@ const demo = [
     {
         title: "Animasyonlar çok kötü",
         featuredImage: "https://s-media-cache-ak0.pinimg.com/originals/14/bd/99/14bd99918b051b4155d0aff8d0ca7fe0.jpg",
-        message: "Berserk'in animasyonları hala bok gibi ama hikaye iyi gidiyo ya"
-
     },
     {
         title: "Baruto : Saçmalık!",
         featuredImage: "http://2.bp.blogspot.com/-eQPkwVZWLBs/UvCmCosd1eI/AAAAAAAADN4/_xLTLPwCWeM/s0/kill-la-kill-matoi-ryuuko-hd-wallpaper-1920x1200-j.jpg",
-        message: "Berserk'in animasyonları hala bok gibi ama hikaye iyi gidiyo ya"
     },
     {
         title: "Drifters : Underated anime!",
         featuredImage: "https://c2.staticflickr.com/6/5786/30169706784_3469674775_b.jpg",
-        message: "Berserk'in animasyonları hala bok gibi ama hikaye iyi gidiyo ya"
     },
     {
         title: "Samurai Jack : Kaybolan Kılıç",
         featuredImage: "http://www.adultswim.com/misc/samurai-jack-backgrounds/media/SAMURAI_JACK_1920X1080_Skulls.png",
-        message: "Berserk'in animasyonları hala bok gibi ama hikaye iyi gidiyo ya"
     }
 ]
 

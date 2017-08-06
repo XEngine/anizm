@@ -18,7 +18,6 @@ class Anime extends React.Component {
         const anime = this.props.anime.data
         return (
             <div className="p-d-anime">
-                <div className="cover-image" style={{backgroundImage : `url(${process.env.CDN}${anime.covers.original}`}} />
                 <h3>{anime.canonical_title}</h3>
             </div>
         )
