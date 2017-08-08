@@ -6,7 +6,7 @@ const config = {
     entry: [
         './src/root.js'
     ],
-    devtool: 'source-map',
+    //devtool: 'source-map',
     output: {
         filename: 'bundle.js',
         path: resolve(__dirname, 'public'),
