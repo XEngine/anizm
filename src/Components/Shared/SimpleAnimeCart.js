@@ -3,10 +3,6 @@ import moment from 'moment'
 import {Rate, Button} from 'antd'
 import {Link} from "react-router-dom";
 
-function truncate(str, limit) {
-    return (str.length < limit) ? str : str.substring(0, limit) + '...';
-}
-
 class SimpleAnimeCart extends React.Component {
     render() {
         if (!this.props.anime)
@@ -55,7 +51,7 @@ class SimpleAnimeCart extends React.Component {
                             </div>
                             <div className="synopsis">
                                 <span className="head">Özet : </span>
-                                <span className="desc">{truncate(anime.synopsis, 152)}</span>
+                                <span className="desc">{anime.synopsis}</span>
                             </div>
                         </div>
                     </div>

@@ -1,10 +1,9 @@
 import React from 'react'
-import {Route, Switch, withRouter} from 'react-router-dom'
+import {Route, Switch} from 'react-router-dom'
 
 import store from '../store'
 import {loginUserSuccess} from '../Actions/LoginActions'
 import axios from 'axios'
-import config from '../config';
 import Auth from '../Util/Auth';
 
 import Header from '../Components/Layout/Header'
@@ -28,7 +27,7 @@ if (Auth.isAuthenticated()) {
     store.dispatch(loginUserSuccess(Auth.getUser()))
 }
 
-const Routes = withRouter(({location}) => (
+const Routes = () => (
     <div className="anizm-container">
         <Header/>
         <div className="container header-padding">
@@ -39,6 +38,6 @@ const Routes = withRouter(({location}) => (
             <Footer/>
         </div>
     </div>
-))
+)
 
 export default Routes

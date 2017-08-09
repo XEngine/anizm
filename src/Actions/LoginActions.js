@@ -1,5 +1,4 @@
 import * as constants from '../constants'
-import config from '../config'
 import Auth from '../Util/Auth'
 import axios from 'axios'
 

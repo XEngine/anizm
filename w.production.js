@@ -1,6 +1,8 @@
 const webpack = require('webpack')
 const path = require('path')
 const resolve = path.resolve
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
     entry: [
@@ -21,23 +23,17 @@ const config = {
             {
                 test: /\.scss$/,
                 exclude: /node_modules/,
-                use: [{
-                    loader: "style-loader"
-                }, {
-                    loader: "css-loader"
-                }, {
-                    loader: "sass-loader"
-                }]
+                loader: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: 'css-loader?minimize=true!sass-loader'
+                })
             },
             {
                 test: /\.less$/,
-                use: [{
-                    loader: "style-loader" // creates style nodes from JS strings
-                }, {
-                    loader: "css-loader" // translates CSS into CommonJS
-                }, {
-                    loader: "less-loader" // compiles Less to CSS
-                }]
+                loader: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: 'css-loader?minimize=true!less-loader'
+                })
             },
             {test: /\.(png|jpg)$/, use: 'file-loader?name=img/[name].[ext]'},
             {test: /\.eot(\?v=\d+.\d+.\d+)?$/, use: 'file-loader'},
@@ -54,7 +50,6 @@ const config = {
         new webpack.DefinePlugin({
             'process.env': {
                 'NODE_ENV': JSON.stringify('production'),
-                'BABEL_ENV' : JSON.stringify('production'),
                 '__DEVTOOLS__' : false,
                 'API_URL': JSON.stringify('//api.anizm.tv/api'),
                 'JWT': JSON.stringify({
@@ -66,17 +61,27 @@ const config = {
         }),
         new webpack.optimize.UglifyJsPlugin({
             mangle: true,
-            compress: {
-                warnings: true, // Suppress uglification warnings
-                pure_getters: true,
-                unsafe: true,
-                unsafe_comps: true,
-                screw_ie8: true
-            },
             output: {
                 comments: false,
             },
             exclude: [/\.min\.js$/gi] // skip pre-minified libs
+        }),
+        new webpack.optimize.AggressiveMergingPlugin(),
+        new ExtractTextPlugin({filename: 'css/[name].css', disable: false, allChunks: false}),
+        new HtmlWebpackPlugin({
+            hash : true,
+            template : 'src/Template/index.ejs'
+        }),
+        new webpack.ContextReplacementPlugin(/^\.\/locale$/, context => {
+            // check if the context was created inside the moment package
+            if (!/\/moment/.test(context.context)) { return }
+            // context needs to be modified in place
+            Object.assign(context, {
+                // include only japanese, korean and chinese variants
+                // all tests are prefixed with './' so this must be part of the regExp
+                // the default regExp includes everything; /^$/ could be used to include nothing
+                regExp: /^\.(tr-TR)/
+            })
         })
     ]
 }

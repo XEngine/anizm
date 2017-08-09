@@ -34,6 +34,10 @@ const config = {
                 }]
             },
             {
+                test: /\.css$/,
+                use: [ 'style-loader', 'css-loader' ]
+            },
+            {
                 test: /\.less$/,
                 use: [{
                     loader: "style-loader" // creates style nodes from JS strings
@@ -59,7 +63,6 @@ const config = {
         new webpack.DefinePlugin({
             'process.env': {
                 'NODE_ENV': JSON.stringify('development'),
-                'BABEL_ENV' : JSON.stringify('development'),
                 'API_URL': JSON.stringify('http://localhost:3000/serv/api'),
                 'JWT': JSON.stringify({
                     client_id: 2,

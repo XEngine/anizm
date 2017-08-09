@@ -1,25 +1,23 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import {Provider} from 'react-redux'
-import {ConnectedRouter} from 'connected-react-router'
 import Routes from './Routes/Routes'
 import moment from 'moment'
-import {LocaleProvider} from 'antd';
-import trTR from 'antd/lib/locale-provider/tr_TR';
+import {LocaleProvider} from 'antd'
+import 'antd/dist/antd.css'
+import trTR from 'antd/lib/locale-provider/tr_TR'
 import store from './store'
 import history from './history'
-import 'antd/dist/antd.less';
+import {Router} from 'react-router-dom'
 import './Assets/main.scss'
-
 moment.locale('tr')
 
 const App = () => (
     <Provider store={store}>
-        <ConnectedRouter history={history}>
-            <LocaleProvider locale={trTR}>
+        <LocaleProvider locale={trTR}>
+            <Router history={history}>
                 <Routes/>
-            </LocaleProvider>
-        </ConnectedRouter>
+            </Router>
+        </LocaleProvider>
     </Provider>
 )
 export default App;

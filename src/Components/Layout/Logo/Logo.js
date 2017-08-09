@@ -3,7 +3,11 @@ import {Link} from "react-router-dom";
 
 const Logo = () => (
     <div className="header-logo">
-        <Link to="/"><img src="/logo-transparent.png"/></Link>
+        <Link to="/">
+            <object type="image/svg+xml" data="logo.svg">
+                ANIZMTV
+            </object>
+        </Link>
     </div>
 )
 export default Logo

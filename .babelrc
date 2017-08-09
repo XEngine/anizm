@@ -7,18 +7,18 @@
                     "import",
                     {
                         "libraryName": "antd",
-                        "style": true
+                        "style": "css"
                     }
                 ]
             ]
         },
-        "production" : {
+        "production": {
             "plugins": [
                 [
                     "import",
                     {
                         "libraryName": "antd",
-                        "style": true
+                        "style": "css"
                     }
                 ]
             ]
